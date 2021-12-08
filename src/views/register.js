@@ -23,7 +23,7 @@ const registerTemplate = (onSubmit) => html`
             </div>
                 <input type="submit" class="registerbtn button" value="Register">
             <div class="container signin">
-                <p>Already have an account?<a href="#">Sign in</a>.</p>
+                <p>Already have an account?<a href="/login">Sign in</a>.</p>
             </div>
         </div>
     </form>
@@ -37,20 +37,22 @@ export function registerPage(ctx) {
         event.preventDefault();
 
         const formData = new FormData(event.target);
+        const username = formData.get('username');
         const email = formData.get('email').trim();
         const password = formData.get('password').trim();
-        const repeatPass = formData.get('conf-pass').trim();
+        const repeatPass = formData.get('repeatPass').trim();
+        const gender = formData.get('gender');
 
-        if(email == '' || password == '') {
+        if(email == '' || password == '' || username == '' || gender == '') {
             return alert('All fields are required!');
         };
         if(password != repeatPass) {
             return alert('Passwords should match!')
         };
 
-        await register(email, password);
+        await register(username, email, password, gender);
 
         ctx.updateUserNav();
-        ctx.page.redirect('/');
+        ctx.page.redirect('/allMemes');
     }
 }
