@@ -9,12 +9,12 @@ export const logout = api.logout;
 
 //getAll
 export async function getAll() {
-    return api.get('/data/albums?sortBy=_createdOn%20desc&distinct=name');
+    return api.get('/data/memes?sortBy=_createdOn%20desc');
 }
 
 //create(item)
 export async function create(item) {
-    return api.post('/data/albums', item);
+    return api.post('/data/memes', item);
 }
 
 //getById(id)
