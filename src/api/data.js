@@ -19,16 +19,16 @@ export async function create(item) {
 
 //getById(id)
 export async function getById(id) {
-    return api.get('/data/albums/' + id);
+    return api.get('/data/memes/' + id);
 }
 //deleteById(id)
 export async function deleteById(id) {
-    return api.del('/data/albums/' + id);
+    return api.del('/data/memes/' + id);
 }
 
 //edit(id, item)
 export async function edit(id, item) {
-    return api.put('/data/albums/' + id, item);
+    return api.put('/data/memes/' + id, item);
 }
 
 //getByYear(query) - project specific
