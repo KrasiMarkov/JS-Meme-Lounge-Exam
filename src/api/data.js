@@ -31,6 +31,12 @@ export async function edit(id, item) {
     return api.put('/data/memes/' + id, item);
 }
 
+export async function getMyMemes(){
+    const userId = sessionStorage.getItem('userId');
+    return await api.get(`/data/memes?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`);
+    
+}
+
 //getByYear(query) - project specific
 export async function getByName(query) {
     return api.get(`/data/albums?where=name%20LIKE%20%22${query}%22`);

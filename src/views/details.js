@@ -4,10 +4,10 @@ import { getUserData } from '../util.js';
 
 const detailsTemplate = (meme, isOwner, onDelete) => html`
 <section id="meme-details">
-    <h1>Meme Title: Bad code can present some problems</h1>
+    <h1>${meme.title}</h1>
     <div class="meme-details">
         <div class="meme-img">
-            <img alt="meme-alt" src=${meme.imageUrl}">
+            <img src=${meme.imageUrl} alt="meme-alt">
         </div>
         <div class="meme-description">
             <h2>Meme Description</h2>
@@ -17,7 +17,8 @@ const detailsTemplate = (meme, isOwner, onDelete) => html`
             ${isOwner 
                 ? html`
                 <a class="button warning" href="/edit/${meme._id}">Edit</a>
-                <button @click=${onDelete} href="javascript:void(0)" class="button danger">Delete</button>`: null}
+                <button @click=${onDelete} href="javascript:void(0)" class="button danger">Delete</button>`
+                : null}
         </div>
     </div>
 </section>`;

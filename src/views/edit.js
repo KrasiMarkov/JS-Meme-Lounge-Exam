@@ -11,7 +11,7 @@ const editTemplate = (meme, onSubmit) => html`
             <label for="description">Description</label>
             <textarea id="description" placeholder="Enter Description" name="description">${meme.description}</textarea>
             <label for="imageUrl">Image Url</label>
-            <input id="imageUrl" type="text" placeholder="Enter Meme ImageUrl" name="imageUrl" value=${album.imgUrl}>
+            <input id="imageUrl" type="text" placeholder="Enter Meme ImageUrl" name="imageUrl" value=${meme.imageUrl}>
             <input type="submit" class="registerbtn button" value="Edit Meme">
         </div>
     </form>

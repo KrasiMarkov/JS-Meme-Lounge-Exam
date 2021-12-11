@@ -20,44 +20,30 @@
 
         <!-- Navigation -->
         <nav>
-            <a href="#">All Memes</a>
+            <a href="/allMemes">All Memes</a>
              <!-- Logged users -->
             <div class="user">
-                <a href="#">Create Meme</a>
+                <a id="createBtn" href="/create">Create Meme</a>
                 <div class="profile">
-                    <span>Welcome, {email}</span>
-                    <a href="#">My Profile</a>
+                    <span id="welcomeMsg" >Welcome, {email}</span>
+                    <a id="myProfile" href="/all">My Profile</a>
                     <a id="logoutBtn" href="javascript:void(0)">Logout</a>
                 </div>
             </div>
             <!-- Guest users -->
             <div class="guest">
                 <div class="profile">
-                    <a id="loginBtn" href="#">Login</a>
-                    <a id="registerBtn" href="#">Register</a>
+                    <a id="loginBtn" href="/login">Login</a>
+                    <a id="registerBtn" href="register">Register</a>
                 </div>
-                <a class="active" href="#">Home Page</a>
+                <a id="homeId" class="active" href="/home">Home Page</a>
             </div>
         </nav>
 
         <!-- Main Content -->
         <main id="main-content"></main>
 
-        <!-- Welcome Page ( Only for guest users ) -->
-        <section id="welcome">
-            <div id="welcome-container">
-                <h1>Welcome To Meme Lounge</h1>
-                <img src="/images/welcome-meme.jpg" alt="meme">
-                <h2>Login to see our memes right away!</h2>
-                <div id="button-div">
-                    <a href="#" class="button">Login</a>
-                    <a href="#" class="button">Register</a>
-                </div>
-            </div>
-        </section>
-
-       
-
+        
         <!-- Footer  -->
         <footer class="footer">
             <p>Created by SoftUni Delivery Team</p>
