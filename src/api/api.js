@@ -64,9 +64,11 @@ export async function login(email, password) {
     const result = await post('/users/login', { email, password });
 
     const userData = {
+        username: result.username,
         email: result.email,
         id: result._id,
-        token: result.accessToken
+        token: result.accessToken,
+        gender: result.gender
     };
     setUserData(userData);
 
@@ -77,9 +79,11 @@ export async function register(username, email, password, gender) {
     const result = await post('/users/register', {username, email, password, gender});
 
     const userData = {
+        username: result.username,
         email: result.email,
         id: result._id,
-        token: result.accessToken
+        token: result.accessToken,
+        gender: result.gender
     };
     setUserData(userData);
 
@@ -87,7 +91,7 @@ export async function register(username, email, password, gender) {
 }
 
 export async function logout() {
-    get('/users/logout'); // without await 
+    await get('/users/logout'); // without await 
     clearUserData();
 }
 

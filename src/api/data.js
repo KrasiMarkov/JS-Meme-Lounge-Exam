@@ -1,4 +1,5 @@
 import * as api from './api.js';
+import { getUserData } from '../util.js';
 
 export const login = api.login;
 export const register = api.register;
@@ -32,8 +33,10 @@ export async function edit(id, item) {
 }
 
 export async function getMyMemes(){
-    const userId = sessionStorage.getItem('userId');
-    return await api.get(`/data/memes?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`);
+
+    const userData = getUserData();
+    const userId = userData.id;
+    return  await api.get(`/data/memes?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`);
     
 }
 

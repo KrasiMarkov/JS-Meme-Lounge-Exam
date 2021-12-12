@@ -13,11 +13,11 @@ import { myProfilePage } from './views/myProfile.js';
 
 
 
-const root = document.querySelector("#main-content");
+const root = document.querySelector("main");
 document.querySelector("#logoutBtn").addEventListener('click', onLogout);
 
 page(decorateContext);
-page('/home', homePage);
+page('/', homePage);
 page('/login', loginPage);
 page('/register', registerPage);
 page('/allMemes', allMemesPage);
@@ -41,7 +41,7 @@ function decorateContext(ctx, next) {
 function onLogout() {
     logout();
     updateUserNav();
-    page.redirect('/home');
+    page.redirect('/');
 }
 
 function updateUserNav() {

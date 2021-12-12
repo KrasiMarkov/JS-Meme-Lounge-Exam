@@ -9,3 +9,4 @@ export function setUserData(data) {
 export function clearUserData() {
     sessionStorage.removeItem('userData');
 }
+
