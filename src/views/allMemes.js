@@ -1,8 +1,7 @@
 import { getAll } from '../api/data.js';
 import { html } from '../lib.js';
-import { getUserData } from '../util.js';
 
-let isLogged = false;
+
 
 const allMemesTemplate = (memes) => html`
 <section id="meme-feed">
@@ -21,13 +20,10 @@ const itemCard = (meme) => html`
         <div class="info">
             <p class="meme-title">${meme.title}</p>
             <img class="meme-image" alt="meme-img" src=${meme.imageUrl}>
-        </div>
-        ${isLogged
-          ? html`        
+        </div> 
          <div id="data-buttons">
             <a class="button" href="/details/${meme._id}">Details</a>
-        </div>`
-        : null}
+        </div>
     </div>
 </div>`;
 
@@ -35,7 +31,5 @@ const itemCard = (meme) => html`
 
 export async function allMemesPage(ctx) {
     const memes = await getAll();
-    const userData = getUserData();
-    isLogged = userData != null;
     ctx.render(allMemesTemplate(memes));
 }

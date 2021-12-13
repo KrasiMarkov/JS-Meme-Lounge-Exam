@@ -32,10 +32,8 @@ export async function edit(id, item) {
     return api.put('/data/memes/' + id, item);
 }
 
-export async function getMyMemes(){
-
-    const userData = getUserData();
-    const userId = userData.id;
+export async function getMyMemes(userId){
+    
     return  await api.get(`/data/memes?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`);
     
 }

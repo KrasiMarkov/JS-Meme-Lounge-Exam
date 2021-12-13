@@ -4,7 +4,7 @@ import { getUserData } from '../util.js';
 
 const detailsTemplate = (meme, isOwner, onDelete) => html`
 <section id="meme-details">
-    <h1>${meme.title}</h1>
+    <h1>Meme Title: ${meme.title}</h1>
     <div class="meme-details">
         <div class="meme-img">
             <img src=${meme.imageUrl} alt="meme-alt">
@@ -13,11 +13,11 @@ const detailsTemplate = (meme, isOwner, onDelete) => html`
             <h2>Meme Description</h2>
             <p>${meme.description}</p>
 
-            <!-- Buttons Edit/Delete should be displayed only for creator of this meme  -->
+          
             ${isOwner 
                 ? html`
                 <a class="button warning" href="/edit/${meme._id}">Edit</a>
-                <button @click=${onDelete} href="javascript:void(0)" class="button danger">Delete</button>`
+                <button @click=${onDelete}  class="button danger">Delete</button>`
                 : null}
         </div>
     </div>
